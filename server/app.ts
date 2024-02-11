@@ -13,15 +13,6 @@ interface WeatherResponse {
   description: string
 }
 
-app.get('/api', (_, res: Response<WeatherResponse>) => {
-  const response: WeatherResponse = {
-    message: 'Welcome to the weather-message-api!',
-    description:
-      'To get information about a specific city, please include the city name in the path. For example, to get information about Tokyo, make a GET request to /api/Tokyo.',
-  }
-  res.json(response)
-})
-
 app.get('/api/:city', (req: Request, res: Response<WeatherResponse>) => {
   const { city } = req.params
   const maxTempF = 30
@@ -41,7 +32,8 @@ app.get('/api/:city', (req: Request, res: Response<WeatherResponse>) => {
 app.use('*', (_, res) => {
   const response: WeatherResponse = {
     message: 'Welcome to the weather-message-api!',
-    description: 'Page Not Found.',
+    description:
+      'To get weather information about a specific city, please include the city name in the path. For example, to get information about Tokyo, make a GET request to /api/Tokyo.',
   }
   res.status(404).json(response)
 })
