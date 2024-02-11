@@ -1,5 +1,6 @@
 import env from 'dotenv'
 import express, { Request, Response } from 'express'
+import { WeatherResponseType } from './types'
 
 env.config()
 const port = process.env.PORT ? parseInt(process.env.PORT) : 3000
@@ -13,7 +14,7 @@ interface WeatherResponse {
   description: string
 }
 
-app.get('/api/:city', (req: Request, res: Response<WeatherResponse>) => {
+app.get('/api/:city', (req: Request, res: Response<WeatherResponseType>) => {
   const { city } = req.params
   const maxTempF = 30
   const minTempF = 20
@@ -21,7 +22,7 @@ app.get('/api/:city', (req: Request, res: Response<WeatherResponse>) => {
   const minTempC = 0
   const pop = 15
 
-  const response: WeatherResponse = {
+  const response: WeatherResponseType = {
     message: `The weather in ${city} is sunny. The maximum temperature is ${maxTempF}°F (${maxTempC}°C), the minimum temperature is ${minTempF}°F (${minTempC}°C), and P.O.P is ${pop}%.`,
     description: `The city's name is ${city}.`,
   }
@@ -30,7 +31,7 @@ app.get('/api/:city', (req: Request, res: Response<WeatherResponse>) => {
 
 // if routes don't match
 app.use('*', (_, res) => {
-  const response: WeatherResponse = {
+  const response: WeatherResponseType = {
     message: 'Welcome to the weather-message-api!',
     description:
       'To get weather information about a specific city, please include the city name in the path. For example, to get information about Tokyo, make a GET request to /api/Tokyo.',
