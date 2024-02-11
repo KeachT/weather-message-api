@@ -3,7 +3,7 @@ import { WeatherResponseType } from '../types'
 
 const router = express.Router()
 
-router.get('/api/:city', (req: Request, res: Response<WeatherResponseType>) => {
+router.get('/:city', (req: Request, res: Response<WeatherResponseType>) => {
   const { city } = req.params
   const maxTempF = 30
   const minTempF = 20
