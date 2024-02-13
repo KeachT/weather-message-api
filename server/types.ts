@@ -1,4 +1,4 @@
-export interface WeatherResponseType {
+export type WeatherResponseType = {
   message: string
   description: string
 }
