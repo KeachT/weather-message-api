@@ -11,5 +11,5 @@ enum WeatherStatus {
  * @returns {string} The corresponding weather status or 'Rain' if code is invalid.
  */
 export const getWeatherStatus = (code: number): string => {
-  return WeatherStatus[code] || 'Rain'
+  return WeatherStatus[code] || 'Rainy'
 }
