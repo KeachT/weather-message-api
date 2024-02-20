@@ -15,14 +15,25 @@ Node.js 18.15.0 +
 
 ## How To Use
 
-1. Request Format:
+1. Install packages
+
+   ```shell
+   npm install
+   ```
+
+2. Start the development server and listen on port 3000 of localhost
+
+   ```shell
+   npm run dev
+   ```
+3. Request Format:
    Send a GET request to the API endpoint with the city name as a path parameter.
 
     ```http
-    GET /api/{city}
+    GET http://localhost:3000/api/{city}
     ```
 
-2. Response Format:
+4. Response Format:
 
    - Successful Response:
    
@@ -36,11 +47,11 @@ Node.js 18.15.0 +
 
       Content: Message indicating that the city was not found or weather data is unavailable.
 
-4. Example:
+5. Example:
 
    Request:
    ```http
-   GET /api/Tokyo
+   GET http://localhost:3000/api/Tokyo
    ```
 
    Response:
