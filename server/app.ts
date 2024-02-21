@@ -1,17 +1,12 @@
-import env from 'dotenv'
+import 'dotenv/config'
 import express from 'express'
 import routes from './routes'
 
-env.config()
-const port = process.env.PORT ? parseInt(process.env.PORT) : 3000
+const port = Number(process.env.PORT) || 3000
 
 const app = express()
-
-// to use JSON
-app.use(express.json())
-
-// use routes
-app.use(routes)
+app.use(express.json()) // to use JSON
+app.use(routes) // use routes
 
 app.listen(port, () => {
   console.log(`App listening on port ${port}`)
