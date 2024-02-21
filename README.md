@@ -21,7 +21,7 @@ Node.js 18.15.0 +
    npm install
    ```
 
-2. Start the development server and listen on port 3000 of localhost
+2. Start the server and listen on port 3000 of localhost
 
    ```shell
    npm run dev
